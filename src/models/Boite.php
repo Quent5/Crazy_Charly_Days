@@ -10,7 +10,7 @@ class Boite extends \Illuminate\Database\Eloquent\Model
 
 
     function commande(){
-        return $this->hasMany ('custombox\models\Commande', 'id');
+        return $this->hasMany('custombox\models\Commande', 'id');
     }
 }
 
