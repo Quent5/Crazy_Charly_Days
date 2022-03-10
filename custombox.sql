@@ -23,16 +23,15 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
---
+ --
 -- Structure de la table `commande`
 --
 
 create table commande(
   `id` int(11) NOT NULL,
   `id_boite` int(11) NOT NULL,
-  `id_categorie` int(11) NOT NULL,
-  `id_produit` int(11) NOT NULL, 
-)
+  `id_categorie` int(11) NOT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- Index pour la table `boite`
 --
@@ -50,9 +49,26 @@ ALTER TABLE `commande`
 ALTER TABLE `commande`
   ADD CONSTRAINT `commande_2` FOREIGN KEY (`id`) REFERENCES `categorie` (`id`);
 
-  
-ALTER TABLE `commande`
-  ADD CONSTRAINT `commande_1` FOREIGN KEY (`id`) REFERENCES `produit` (`id`);
+--
+-- Structure de la table `produit2commande`
+--
+
+create table commande2produits (
+  `id_commande` int(11) NOT NULL,
+  `id_produit` int(11) NOT NULL,
+    CONSTRAINT pr PRIMARY KEY (`id_commande`, `id_produit`)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+ALTER TABLE `commande2produits`
+  ADD CONSTRAINT `commande2produit_1` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id`);
+
+
+ALTER TABLE `commande2produits`
+  ADD CONSTRAINT `commande2produit_2` FOREIGN KEY (`id_produit`) REFERENCES `produit` (`id`);
+
+
+
 --
 -- Structure de la table `boite`
 --
