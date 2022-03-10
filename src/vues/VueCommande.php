@@ -35,7 +35,7 @@ class VueCommande{
                 </div>
             </body>
         </html>
-        END;
+END;
         return $html;
     }
 }
