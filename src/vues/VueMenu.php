@@ -58,6 +58,7 @@ class VueMenu
                 <div class="haut">
                     <img src="images/logo/print-logo-blanc-petit.png" id="logo">
                     <h1 class = "text-center">CustomBox</h1>
+                    <a href="" id="panier"><img src="images/logo/paniers.png" id="panier_logo"></a>
                 </div>
                                 
             </head>

@@ -27,7 +27,7 @@
     grid-column: 1/4;
     grid-row: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
 }
 
@@ -38,7 +38,7 @@
     border-bottom-color: #F2DCA4;
     padding-top: 5px;
     padding-bottom: 5px;
-    grid-column: 2;
+    grid-column: 8;
     grid-row: 1;
     height: 50px;
     margin-top: 0px;
@@ -81,6 +81,15 @@ section{
     display: inline;
     grid-column: 1;
     grid-row: 1;
+}
+
+#panier{
+    grid-column: 14;
+    grid-row: 1;
+}
+
+#panier_logo{
+    width: 50px;
 }
 
 .titre-nav{
