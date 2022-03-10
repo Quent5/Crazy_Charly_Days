@@ -39,7 +39,8 @@ class VueMenu
         $categorie = \custombox\models\Categorie::where('id', '=', "$k[categorie]")->first();
         $content = "Liste des produits de catégories : $categorie->nom";
         foreach ($this->tab as $l) {
-            $content .= "<article>$l[id] ; $l[titre] ; $l[description]<img src=\"http://localhost/CustomBox/images/produit/$l[id].jpg\"></article>\n";
+            $url_acceuil = $this->container->router->pathFor('accueil');
+            $content .= "<article>$l[id] ; $l[titre] ; $l[description]<img src=\"$url_acceuil/images/produits/$l[id].jpg\" width='150px' height='150px'></article>\n";
         }
         return "<section>$content</section>";
     }
