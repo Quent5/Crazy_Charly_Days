@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace custombox\models;
+namespace custombox\controller;
 
-use custombox\vues\VueMenu;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Container;
+use custombox\vues\VueMenu;
 
 class ControllerMenu {
 
@@ -16,12 +16,12 @@ class ControllerMenu {
 		$this->container = $container;
 	}
 
-    // 
-    public function afficherListeProduit(Request $rq, Response $rs, $args): Response {
-		$array = [];
-		$vue = new VueMenu($array, $this->container);
-		$html = $vue->render(1);
-		$rs->getBody()->write($html);
-		return $rs;
-	}
+    public function afficherListeCategorie(Request $rq, Response $rs, $args):Response
+    {
+        $listes = \custombox\models\Categorie::all();
+        $vue = new \custombox\vues\VueMenu($listes->toArray(), $this->container) ;
+        $html = $vue->render(0) ;
+        $rs->getBody()->write($html);
+        return $rs;
+    }
 }

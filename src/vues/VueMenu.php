@@ -1,5 +1,6 @@
 <?php
-namespace costumbox\vues;
+
+namespace custombox\vues;
 use Slim\Container;
 
 class VueMenu
@@ -13,10 +14,13 @@ class VueMenu
         $this->container = $container;
     }
 
-
-    private function htmlAcceuil() : string
+    private function afficherListeCategorie() : string
     {
-        return $content ="<h1>Costumbox</h1>";
+        $content = "\n";
+        foreach ($this->tab as $l) {
+            $content .= "<article>$l[id] ; $l[nom]</article>\n";
+        }
+        return "<section>$content</section>";
     }
 
     public function render($selecteur)
@@ -24,9 +28,23 @@ class VueMenu
         switch ($selecteur) {
             case 0:
             {
-                $content = $this->htmlAcceuil();
+                $content = $this->afficherListeCategorie();
                 break;
             }
         }
+
+        $url_acceuil = $this->container->router->pathFor('accueil');
+
+        $html = <<<END
+        <!DOCTYPE html>
+        <html>
+            <body>
+                <div class="content">
+                $content
+                </div>
+            </body>
+        </html>
+        END;
+        return $html;
     }
 }

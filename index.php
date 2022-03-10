@@ -1,11 +1,10 @@
 <?php
 declare(strict_types=1);
-require 'vendor/autoload.php';
-require_once "src/vues/PageMaker.php";
+require './vendor/autoload.php';
 
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
-use custombox\vue\PageMaker;
+use custombox\controller\ControllerMenu;
 
 $configuration = [
     'settings' => [
@@ -29,42 +28,12 @@ $app = new \Slim\App([
 ]);
 
 
-$app->get('/',function (Request $request, Response $response, $args) {
-    $response->getBody()->write(PageMaker::startPage("Accueil"));
-    $response->getBody()->write(PageMaker::startHeader());
-    
-    $response->getBody()->write(PageMaker::title("CustomBox"));
-    $response->getBody()->write(PageMaker::endPage());
-    return $response;
-
-
-
-})->setName("accueil");
-
-$app->get(
-    '/test',
+$app->get('/',
     function ($rq, $rs, $args) {
-        echo 'test';
+        $c = new  ControllerMenu($this);
+        return $c->afficherListeCategorie($rq, $rs, $args);
     }
-)->setName('test');
-
-$app->get(
-    '/listes',
-    'mywishlist\controller\AffichageController:afficherListes'
-)->setName('listeDesListes');
-
-$app->get(
-    '/liste/{noListe}',
-    'mywishlist\controller\AffichageController:afficherUneListe'
-)->setName('affUneListe');
-
-$app->get(
-    '/item/{id}',
-    function ($rq, $rs, $args) {
-        $c = new \mywishlist\controller\AffichageController($this);
-        return $c->afficherUnItem($rq, $rs, $args);
-    }
-)->setName('affUnItem');
+)->setName("accueil");
 
 $app->run();
 
