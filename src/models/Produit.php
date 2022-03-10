@@ -2,9 +2,9 @@
 
 namespace custombox\models;
 
-use Illuminate\Database\Eloquent\Models;
+use Illuminate\Database\Eloquent\Model;
 
-class Produit extends Models {
+class Produit extends Model {
 	protected $table = 'produit';
 	protected $primaryKey = 'id';
 	public $timestamps = false;
