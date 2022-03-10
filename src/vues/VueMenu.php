@@ -24,7 +24,8 @@ class VueMenu
     {
         $content = "Liste des Catégories\n";
         foreach ($this->tab as $l) {
-            $content .= "<article>$l[nom]<img src=\"images/categories/$l[id].png\"></article>\n";
+            $content .= "<a href=><article>$l[nom]<img src=\"images/categories/$l[id].png\"></article></a>\n";
+            //$url_$l[nom]
         }
         return "<section>$content</section>";
     }
@@ -62,6 +63,7 @@ class VueMenu
 
         $url_acceuil = $this->container->router->pathFor('accueil');
         $url_listecategorie = $this->container->router->pathFor('liste_categorie');
+        $url_creer_produit = $this->container->router->pathFor('creer_produit');
 		$url_register = $this->container->router->pathFor('register');
 		$url_login = $this->container->router->pathFor('login');
         //$url_categorie = $this->container->router->pathFor('afficherUneCategorie');
@@ -80,6 +82,11 @@ class VueMenu
             </head>
             <nav class="nav">
                 <h1 class="titre-nav">Navigation</h1>
+                <div class="lien"><a href=$url_acceuil>Accueil</a></div>
+                <div class="lien"><a href=$url_listecategorie>Liste de Catégorie</a></div>
+                <div class="lien"><a href=$url_creer_produit>Ajouter un produit</a></div>
+                <div class="lien"><a href=$url_register>S'inscrire</a></div>
+                <div class="lien"><a href=$url_login>Se connecter</a></div>
                 
             </nav>
             <body>
