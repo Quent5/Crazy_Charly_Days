@@ -43,6 +43,18 @@ $app->get('/',
 
 $app->get('/listcat', ControllerMenu::class . ':afficherListeCategorie')->setName('liste_categorie');
 
+
+$app->get('/commande', "custombox\controller\ControllerCommande:listerCommande")->setName("voirListes");
+
+$app->post('/commande/creer', "custombox\controller\ControllerCommande:creerCommande");
+$app->get('/commande/creer', "custombox\controller\ControllerCommande:affCrerCommande")->setName("creerCommande");
+$app->post('/commande/choix', "custombox\controller\ControllerCommande:choixBoite");
+$app->get('/commande/choix', "custombox\controller\ControllerCommande:affChoixBoite")->setName("choixBoite");
+
+
+
+
+
 try {
     $app->run();
 } catch (Throwable $e) {
