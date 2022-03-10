@@ -1,4 +1,6 @@
-<?php namespace MyWishList\vue;
+<?php
+
+namespace custombox\vue;
 
 class PageMaker {
     public static function startPage($title): string {
