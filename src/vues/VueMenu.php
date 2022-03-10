@@ -24,7 +24,7 @@ class VueMenu
     {
         $content = "Liste des Catégories\n";
         foreach ($this->tab as $l) {
-            $content .= "<article>$l[id] ; $l[nom]</article>\n";
+            $content .= "<article>$l[nom]<img src=\"images/categories/$l[id].png\"></article>\n";
         }
         return "<section>$content</section>";
     }
@@ -48,6 +48,18 @@ class VueMenu
         $html = <<<END
         <!DOCTYPE html>
         <html>
+            <head>
+                <link rel="stylesheet" href="style.css" />
+                <div class="haut">
+                    <img src="images/logo/print-logo-blanc-petit.png" id="logo">
+                    <h1 class = "text-center">CustomBox</h1>
+                </div>
+                                
+            </head>
+            <nav class="nav">
+                <h1 class="titre-nav">Navigation</h1>
+                
+            </nav>
             <body>
                 <div class="content">
                 $content
