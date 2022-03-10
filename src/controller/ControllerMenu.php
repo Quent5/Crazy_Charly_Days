@@ -16,7 +16,12 @@ class ControllerMenu {
 		$this->container = $container;
 	}
 
-
-
-
+    // 
+    public function afficherListeProduit(Request $rq, Response $rs, $args): Response {
+		$array = [];
+		$vue = new VueMenu($array, $this->container);
+		$html = $vue->render(1);
+		$rs->getBody()->write($html);
+		return $rs;
+	}
 }
