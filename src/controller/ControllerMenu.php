@@ -32,4 +32,12 @@ class ControllerMenu {
         $rs->getBody()->write($html);
         return $rs;
     }
+
+    public function afficherUneCategorie(Request $rq, Response $rs, $args):Response {
+        $liste = \custombox\models\Produit::where('categorie','=',$args['id'])->get();
+        $vue = new \custombox\vues\VueMenu($liste->toArray(), $this->container) ;
+        $html = $vue->render(2);
+        $rs->getBody()->write($html);
+        return $rs;
+    }
 }

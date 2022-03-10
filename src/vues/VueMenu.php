@@ -24,11 +24,24 @@ class VueMenu
     {
         $content = "Liste des Catégories\n";
         foreach ($this->tab as $l) {
-            $content .= "<a href=><article>$l[nom]<img src=\"images/categories/$l[id].png\"></article></a>\n";
+            $content .= "<a href=https://webetu.iutnc.univ-lorraine.fr/www/hemmerle8u/Crazy_Charly_Days/$l[id]><article>$l[nom]<img src=\"images/categories/$l[id].png\"></article></a>\n";
             //$url_$l[nom]
         }
         return "<section>$content</section>";
     }
+
+    private function afficherCategorie() : string
+    {
+        $k = $this->tab[0];
+        $categorie = \custombox\models\Categorie::where('id', '=', "$k[categorie]")->first();
+        $content = "Liste des produits de catégories : $categorie->nom";
+        foreach ($this->tab as $l) {
+            $content .= "<article>$l[id] ; $l[titre] ; $l[description]</article>\n";
+        }
+        return "<section>$content</section>";
+    }
+
+
 
     public function render($selecteur)
     {
@@ -41,6 +54,11 @@ class VueMenu
                 $content = $this->afficherListeCategorie();
                 break;
             }
+
+            case 2: {
+                $content = $this->afficherCategorie();
+                break;
+            }
         }
 
         $url_acceuil = $this->container->router->pathFor('accueil');
@@ -48,7 +66,8 @@ class VueMenu
         $url_creer_produit = $this->container->router->pathFor('creer_produit');
 		$url_register = $this->container->router->pathFor('register');
 		$url_login = $this->container->router->pathFor('login');
-		//$url_Beauté = $this->container->router->pathFor('beaute');
+        //$url_categorie = $this->container->router->pathFor('afficherUneCategorie');
+
 
         $html = <<<END
         <!DOCTYPE html>
