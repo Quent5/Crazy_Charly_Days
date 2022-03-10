@@ -12,6 +12,13 @@
     --color-primary: var(--color-blue);
 }
 
+@font-face {
+    font-family: "Aileron";
+    src: url("/fonts/Aileron-Thin.otf") format("otf");
+    /*src: url("/fonts/bright-regular-1.ttf") format("ttf");*/
+
+}
+
 .haut{
     background-color: #47ACA4;
     border-bottom-color: #F2DCA4;
@@ -20,18 +27,18 @@
     grid-column: 1/4;
     grid-row: 1;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr;
 }
 
 .text-center{
     text-align: center;
-    font-family: "bluelminbenedict", cursive;
+    font-family: "Aileron";
     background-color: #47ACA4;
     border-bottom-color: #F2DCA4;
     padding-top: 5px;
     padding-bottom: 5px;
-    grid-column: 2;
+    grid-column: 8;
     grid-row: 1;
     height: 50px;
     margin-top: 0px;
@@ -40,7 +47,7 @@
 }
 
 article{
-    font-family: "bluelminbenedict", cursive;
+    font-family: "Aileron";
     text-align: center;
 }
 
@@ -60,25 +67,45 @@ section{
     grid-row: 3/4;
 }
 
+.lien{
+    margin-left: 10px;
+    color: #34495e;
+    text-decoration: none;
+    text-decoration-color: #34495e;
+
+}
+
 #logo{
+    margin-left: 20px;
     width: 60px;
     display: inline;
     grid-column: 1;
     grid-row: 1;
 }
 
+#panier{
+    grid-column: 14;
+    grid-row: 1;
+}
+
+#panier_logo{
+    width: 50px;
+}
+
 .titre-nav{
+    border-top-right-radius: 20px;
     text-align: center;
     margin-top: 0px;
     padding-bottom: 4px;
     padding-top: 4px;
     border-bottom: solid;
     background-color: #F2DCA4;
-    font-family: "bluelminbenedict", cursive;
+    font-family: "Aileron";
     color: #34495e;
 }
 
 .nav{
+    border-top-right-radius: 10%;
     background-color: #DDC484;
     grid-column: 1;
     grid-row: 2/4;

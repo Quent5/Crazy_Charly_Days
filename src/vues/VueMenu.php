@@ -24,10 +24,24 @@ class VueMenu
     {
         $content = "Liste des Catégories\n";
         foreach ($this->tab as $l) {
-            $content .= "<article>$l[nom]<img src=\"images/categories/$l[id].png\"></article>\n";
+            $content .= "<a href=https://webetu.iutnc.univ-lorraine.fr/www/hemmerle8u/Crazy_Charly_Days/$l[id]><article>$l[nom]<img src=\"images/categories/$l[id].png\"></article></a>\n";
+            //$url_$l[nom]
         }
         return "<section>$content</section>";
     }
+
+    private function afficherCategorie() : string
+    {
+        $k = $this->tab[0];
+        $categorie = \custombox\models\Categorie::where('id', '=', "$k[categorie]")->first();
+        $content = "Liste des produits de catégories : $categorie->nom";
+        foreach ($this->tab as $l) {
+            $content .= "<article>$l[id] ; $l[titre] ; $l[description]</article>\n";
+        }
+        return "<section>$content</section>";
+    }
+
+
 
     public function render($selecteur)
     {
@@ -40,10 +54,20 @@ class VueMenu
                 $content = $this->afficherListeCategorie();
                 break;
             }
+
+            case 2: {
+                $content = $this->afficherCategorie();
+                break;
+            }
         }
 
         $url_acceuil = $this->container->router->pathFor('accueil');
         $url_listecategorie = $this->container->router->pathFor('liste_categorie');
+        $url_creer_produit = $this->container->router->pathFor('creer_produit');
+		$url_register = $this->container->router->pathFor('register');
+		$url_login = $this->container->router->pathFor('login');
+        //$url_categorie = $this->container->router->pathFor('afficherUneCategorie');
+
 
         $html = <<<END
         <!DOCTYPE html>
@@ -53,22 +77,23 @@ class VueMenu
                 <div class="haut">
                     <img src="images/logo/print-logo-blanc-petit.png" id="logo">
                     <h1 class = "text-center">CustomBox</h1>
+                    <a href="" id="panier"><img src="images/logo/paniers.png" id="panier_logo"></a>
                 </div>
                                 
             </head>
             <nav class="nav">
                 <h1 class="titre-nav">Navigation</h1>
+                <div class="lien"><a href=$url_acceuil>Accueil</a></div>
+                <div class="lien"><a href=$url_listecategorie>Liste de Catégorie</a></div>
+                <div class="lien"><a href=$url_creer_produit>Ajouter un produit</a></div>
+                <div class="lien"><a href=$url_register>S'inscrire</a></div>
+                <div class="lien"><a href=$url_login>Se connecter</a></div>
                 
             </nav>
             <body>
                 <div class="content">
                 $content
                 </div>
-                <nav>
-                <br>
-                <div><a href=$url_acceuil>Accueil</a></div>
-               <div><a href=$url_listecategorie>Liste de Catégorie</a></div>
-               </nav>
             </body>
         </html>
         END;

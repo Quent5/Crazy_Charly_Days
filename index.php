@@ -2,9 +2,11 @@
 declare(strict_types=1);
 require './vendor/autoload.php';
 
+use custombox\controller\ControllerCreerProduit;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use custombox\controller\ControllerMenu;
+use custombox\controller\ControllerCompte;
 
 $configuration = [
     'settings' => [
@@ -34,12 +36,19 @@ $app->get('/',
     }
 )->setName("accueil");
 
-/*$app->get('/list',
+$app->get('/form',
     function ($rq, $rs, $args) {
-        $c = new ControllerMenu($this);
-        return $c->afficherListeCategorie($rq, $rs, $args);
+        $c = new ControllerCreerProduit($this);
+        return $c->afficherForm($rq, $rs, $args);
     }
-)->setName("liste_categorie");*/
+)->setName('creer_produit');
+
+$app->post('/form',
+    function ($rq, $rs, $args) {
+        $c = new ControllerCreerProduit($this);
+        return $c->afficherForm($rq, $rs, $args);
+    }
+)->setName('creer_produit_post');
 
 $app->get('/listcat', ControllerMenu::class . ':afficherListeCategorie')->setName('liste_categorie');
 
@@ -51,12 +60,17 @@ $app->get('/commande/creer', "custombox\controller\ControllerCommande:affCrerCom
 $app->post('/commande/choix', "custombox\controller\ControllerCommande:choixBoite");
 $app->get('/commande/choix', "custombox\controller\ControllerCommande:affChoixBoite")->setName("choixBoite");
 
+$app->get('/connexion', ControllerCompte::class . ':login')->setName('login');
+$app->post('/connexion', ControllerCompte::class . ':login')->setName('loginForm');
 
+// Inscription
+$app->get('/inscription', ControllerCompte::class . ':register')->setName('register');
+$app->post('/inscription', ControllerCompte::class . ':register')->setName('registerForm');
 
+$app->get('/categorie/{id}', ControllerMenu::class . ':afficherUneCategorie')->setName('afficherUneCategorie');
 
 
 try {
     $app->run();
 } catch (Throwable $e) {
 }
-

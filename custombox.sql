@@ -22,22 +22,19 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `compte` (
-  `login` text NOT NULL,
-  `nom` text NOT NULL,
-  `prenom` text NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_utilisateur` text NOT NULL,
+  `nom` text,
+  `prenom` text,
   `mdp` text NOT NULL,
   `mail` text, 
   `tel` text,
-  PRIMARY KEY (login)
+  PRIMARY KEY (`id`)
 )
 
-CREATE TABLE `historique_commande` (
-  `login`,
-  `id_commande`,
-  CONSTRAINT PK_historique_commande PRIMARY KEY (login, id_commande),
-  ADD CONSTRAINT `c1` FOREIGN KEY (`login`) REFERENCES `compte` (`login`);
-  ADD CONSTRAINT `c2` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id`);
-)
+
+
+
 
 
 
@@ -48,7 +45,7 @@ CREATE TABLE `historique_commande` (
 -- Structure de la table `commande`
 --
 
-create table commande(
+create table `commande`(
   `id` int(11) NOT NULL,
   `id_boite` int(11) NOT NULL,
   `id_categorie` int(11) NOT NULL
@@ -64,17 +61,29 @@ ALTER TABLE `commande`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
 
 ALTER TABLE `commande`
-  ADD CONSTRAINT `commande_1` FOREIGN KEY (`id`) REFERENCES `boite` (`id`);
+  ADD CONSTRAINT `commande_1` FOREIGN KEY (`id_boite`) REFERENCES `boite` (`id`);
 
 
 ALTER TABLE `commande`
-  ADD CONSTRAINT `commande_2` FOREIGN KEY (`id`) REFERENCES `categorie` (`id`);
+  ADD CONSTRAINT `commande_2` FOREIGN KEY (`id_categorie`) REFERENCES `categorie` (`id`);
 
 --
 -- Structure de la table `produit2commande`
 --
 
-create table commande2produits (
+CREATE TABLE `historique_commande` (
+  `id` int(11) NOT NULL,
+  `id_commande` int(11) NOT NULL,
+  CONSTRAINT pk PRIMARY KEY (`id`, `id_commande`)
+)
+ALTER TABLE `historique_commande`
+  ADD CONSTRAINT `c1` FOREIGN KEY (`id`) REFERENCES `compte` (`id`);
+
+ALTER TABLE `historique_commande`
+  ADD CONSTRAINT `c2` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id`);
+
+
+create table `commande2produits` (
   `id_commande` int(11) NOT NULL,
   `id_produit` int(11) NOT NULL,
     CONSTRAINT pr PRIMARY KEY (`id_commande`, `id_produit`)

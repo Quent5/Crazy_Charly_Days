@@ -1,0 +1,9 @@
+connexion : https://webetu.iutnc.univ-lorraine.fr/www/hemmerle8u/Crazy_Charly_Days/connexion 
+inscription : https://webetu.iutnc.univ-lorraine.fr/www/hemmerle8u/Crazy_Charly_Days/inscription
+accueil : https://webetu.iutnc.univ-lorraine.fr/www/hemmerle8u/Crazy_Charly_Days/
+ajouter un produit : https://webetu.iutnc.univ-lorraine.fr/www/hemmerle8u/Crazy_Charly_Days/form
+list de catégorie : https://webetu.iutnc.univ-lorraine.fr/www/hemmerle8u/Crazy_Charly_Days/listcat
+
+
+
+
