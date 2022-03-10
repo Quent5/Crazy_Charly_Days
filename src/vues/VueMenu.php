@@ -60,19 +60,15 @@ class VueMenu
             </head>
             <nav class="nav">
                 <h1 class="titre-nav">Navigation</h1>
-                
+                <div><a href=$url_acceuil>Accueil</a></div>
+                <div><a href=$url_listecategorie>Liste de Catégorie</a></div>
+                <div><a href=$url_register>S inscrire</a></div>
+                <div><a href=$url_login>Se connecter</a></div>
             </nav>
             <body>
                 <div class="content">
                 $content
                 </div>
-                <nav>
-                <br>
-                <div><a href=$url_acceuil>Accueil</a></div>
-               <div><a href=$url_listecategorie>Liste de Catégorie</a></div>
-               <div><a href=$url_register>S inscrire</a></div>
-               <div><a href=$url_login>Se connecter</a></div>
-               </nav>
             </body>
         </html>
         END;
