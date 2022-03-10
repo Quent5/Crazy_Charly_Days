@@ -12,6 +12,13 @@
     --color-primary: var(--color-blue);
 }
 
+@font-face {
+    font-family: "Aileron";
+    src: url("/fonts/Aileron-Thin.otf") format("otf");
+    /*src: url("/fonts/bright-regular-1.ttf") format("ttf");*/
+
+}
+
 .haut{
     background-color: #47ACA4;
     border-bottom-color: #F2DCA4;
@@ -26,7 +33,7 @@
 
 .text-center{
     text-align: center;
-    font-family: "bluelminbenedict", cursive;
+    font-family: "Aileron";
     background-color: #47ACA4;
     border-bottom-color: #F2DCA4;
     padding-top: 5px;
@@ -40,7 +47,7 @@
 }
 
 article{
-    font-family: "bluelminbenedict", cursive;
+    font-family: "Aileron";
     text-align: center;
 }
 
@@ -84,7 +91,7 @@ section{
     padding-top: 4px;
     border-bottom: solid;
     background-color: #F2DCA4;
-    font-family: "bluelminbenedict", cursive;
+    font-family: "Aileron";
     color: #34495e;
 }
 
