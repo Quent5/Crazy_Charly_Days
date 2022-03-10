@@ -24,7 +24,7 @@ class VueMenu
     {
         $content = "Liste des Catégories\n";
         foreach ($this->tab as $l) {
-            $content .= "<a href=><article>$l[nom]<img src=\"images/categories/$l[id].png\"></article></a>\n";
+            $content .= "<a href=https://webetu.iutnc.univ-lorraine.fr/www/hemmerle8u/Crazy_Charly_Days/$l[id]><article>$l[nom]<img src=\"images/categories/$l[id].png\"></article></a>\n";
             //$url_$l[nom]
         }
         return "<section>$content</section>";
@@ -94,14 +94,6 @@ class VueMenu
                 <div class="content">
                 $content
                 </div>
-                <nav>
-                <br>
-                <div><a href=$url_acceuil>Accueil</a></div>
-               <div><a href=$url_listecategorie>Liste de Catégorie</a></div>
-               <div><a href=$url_register>S inscrire</a></div>
-               <div><a href=$url_login>Se connecter</a></div>
-               
-               </nav>
             </body>
         </html>
         END;
