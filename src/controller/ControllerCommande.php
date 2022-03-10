@@ -1,5 +1,5 @@
 <?php
-declare(strict_types=1);
+
 namespace custombox\controller;
 
 
@@ -25,7 +25,8 @@ class ControllerCommande{
         if($args < 0.7)$response->getBody()->write("<p>La petite boite est plus adaptée</p>");
         if($args > 0.7 && $args <= 1.5 )$response->getBody()->write("<p>La boite moyenne est plus adaptée</p>");
         if($args > 1.5 && $args <= 3.2 )$response->getBody()->write("<p>La grande boite est plus adaptée</p>");
-        
+        if($args > 3.2 )$response->getBody()->write("<p>Plusieur boîtes sont requise</p>");
+
         $response->getBody()->write("<form action='' method='post'>
         <p>Taille de la boite  : <input type='text' name='boite' placeholder='1,2,3' /></p>
         <p>1 = petit(0,7kg) / 2 = moyenne(1,5kg) / 3 = grande(3,2kg)</p>
@@ -46,7 +47,7 @@ class ControllerCommande{
         if(!filter_var($json["boite"], FILTER_VALIDATE_INT)){
             $response->getBody()->write('<h1>Boîte invalide</h1>');
         } 
-        $this->affCreerCommande($request, $response, $args);
+        $response->getBody()->write("La commande a bien été traitée");
 
         return $response;
     }

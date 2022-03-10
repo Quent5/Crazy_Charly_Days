@@ -66,6 +66,8 @@ class VueMenu
         $url_creer_produit = $this->container->router->pathFor('creer_produit');
 		$url_register = $this->container->router->pathFor('register');
 		$url_login = $this->container->router->pathFor('login');
+        $url_creerCommande = $this->container->router->pathFor('creerCommande');
+        
         //$url_categorie = $this->container->router->pathFor('afficherUneCategorie');
 
 
@@ -88,6 +90,7 @@ class VueMenu
                 <div class="lien"><a href=$url_creer_produit>Ajouter un produit</a></div>
                 <div class="lien"><a href=$url_register>S'inscrire</a></div>
                 <div class="lien"><a href=$url_login>Se connecter</a></div>
+                <div class="lien"><a href=$url_creerCommande>Creer une commande</a></div>
                 
             </nav>
             <body>
