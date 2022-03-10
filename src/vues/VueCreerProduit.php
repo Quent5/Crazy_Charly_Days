@@ -16,22 +16,25 @@ class VueCreerProduit {
     public function afficherForm() : string
     {
         $content = "
+            <a href='/Crazy_Charly_Days'>
+                <img src='images/logo/print-logo-blanc-petit.png' id='logo'>
+            </a>
             <div class='main-block'>
               <form action='' method='post'>
                 <h1>Ajouter un produit :</h1>
                 <div class='info'>
                   <p>Nom du produit</p>
-                  <input id='nom_p' class='fname' type='text' name='nom_p' placeholder=''>
+                  <input id='nom_p' class='fname' type='text' name='nom_p' placeholder='' required>
                   <p>Description du produit</p>
-                  <input id='desc_p' class='fname' type='text' name='desc_p' placeholder=''>
+                  <input id='desc_p' class='fname' type='text' name='desc_p' placeholder='' required>
                   <!--<p>Image du produit</p>
                   <input id='img_p' type='text' name='name' placeholder=''>-->
                   <p>Catégorie du produit</p>
-                  <input id='categ_p' class='fname' type='text' name='categ_p' placeholder=''>
+                  <input id='categ_p' class='fname' type='text' name='categ_p' placeholder='' required>
                   <p>Poids du produit </p>
-                  <input id='poids_p' type='text' name='poids_p' placeholder=''>
+                  <input id='poids_p' type='text' name='poids_p' placeholder='' required>
                 </div>
-                <input name='submit' type='submit' value='Valider'/>
+                <input class='bouton_chiant' name='submit' type='submit' value='Valider'/>
               </form>
             </div>";
         return $content;
