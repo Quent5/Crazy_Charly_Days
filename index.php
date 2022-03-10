@@ -53,11 +53,11 @@ $app->get('/listcat', ControllerMenu::class . ':afficherListeCategorie')->setNam
 
 
 $app->get('/connexion', ControllerCompte::class . ':login')->setName('login');
-$app->post('/connexion', ControllerCompte::class . ':loginForm')->setName('loginForm');
+$app->post('/connexion', ControllerCompte::class . ':login')->setName('loginForm');
 
 // Inscription
 $app->get('/inscription', ControllerCompte::class . ':register')->setName('register');
-$app->post('/inscription', ControllerCompte::class . ':registerForm')->setName('registerForm');
+$app->post('/inscription', ControllerCompte::class . ':register')->setName('registerForm');
 
 $app->get('/categorie/{id}', ControllerMenu::class . ':afficherUneCategorie')->setName('afficherUneCategorie');
 
