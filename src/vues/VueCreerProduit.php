@@ -16,7 +16,7 @@ class VueCreerProduit {
     public function afficherForm() : string
     {
         $content = "
-            <a href='/Crazy_Charly_Days'>
+            <a href='https://webetu.iutnc.univ-lorraine.fr/www/hemmerle8u/Crazy_Charly_Days'>
                 <img src='images/logo/print-logo-blanc-petit.png' id='logo'>
             </a>
             <div class='main-block'>
