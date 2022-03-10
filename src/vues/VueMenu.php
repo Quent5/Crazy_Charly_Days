@@ -71,8 +71,8 @@ class VueMenu
                 <br>
                 <div><a href=$url_acceuil>Accueil</a></div>
                <div><a href=$url_listecategorie>Liste de Catégorie</a></div>
-               <div><a href=$url_creer_produit>Créer un produit</a></div>
-               <div><a href=$url_register>S inscrire</a></div>
+               <div><a href=$url_creer_produit>Ajouter un produit</a></div>
+               <div><a href=$url_register>S'inscrire</a></div>
                <div><a href=$url_login>Se connecter</a></div>
                </nav>
             </body>

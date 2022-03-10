@@ -24,7 +24,6 @@ class ControllerCreerProduit {
         $rs->getBody()->write($html);
         if(isset($_POST['submit'])) {
             if($_POST['submit'] == 'Valider') {
-                echo "test";
                 $nom = htmlspecialchars($_POST['nom_p']);
                 $desc = htmlspecialchars($_POST['desc_p']);
                 /*$img = htmlspecialchars($_POST['img_p']);*/
