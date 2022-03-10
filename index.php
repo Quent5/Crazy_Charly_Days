@@ -6,6 +6,7 @@ use custombox\controller\ControllerCreerProduit;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 use custombox\controller\ControllerMenu;
+use custombox\controller\ControllerCompte;
 
 $configuration = [
     'settings' => [
