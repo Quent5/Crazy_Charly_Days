@@ -1,0 +1,149 @@
+:root {
+    --border-radius: 6px;
+    --color-black: #34495e;
+    --color-white: #ecf0f1;
+    --color-gray: #95a5a6;
+    --color-red: #e74c3c;
+    --color-orange: #e67e22;
+    --color-yellow: #f1c40f;
+    --color-green: #27ae60;
+    --color-blue: #3498db;
+    --color-purple: #9b59b6;
+    --color-primary: var(--color-blue);
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+}
+
+.card-body {
+    padding: 0.8em;
+}
+
+.card {
+    background-color: var(--color-black);
+    border: solid 1px var(--color-gray);
+    border-radius: var(--border-radius);
+}
+
+input {
+    background-color: var(--color-black);
+    border: solid 1px var(--color-gray);
+    border-radius: var(--border-radius);
+    padding: 2px 4px;
+    color: var(--color-white);
+}
+
+header {
+    background-color: var(--color-primary);
+    box-shadow: 0 0 10px #0004;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+    max-width: 100vw;
+    min-height: 40px;
+}
+header > div > .button {
+    background-color: var(--color-black);
+    border: solid 1px var(--color-primary);
+}
+
+.button {
+    margin: 4px;
+    background-color: var(--color-primary);
+    border: solid 1px var(--color-black);
+} .button:hover {
+    background-color: var(--color-primary);
+    border: solid 1px var(--color-black);
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.right {
+    text-align: right;
+}
+
+.inline {
+    display: flex;
+}
+
+.centerX {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.centerY {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+h3 {
+    margin: 8px;
+    padding: 0px;
+    text-align: center;
+}
+
+.inputLabel {
+    margin: 8px 4px 0px 4px;
+}
+
+.inputZone {
+    width: 300px;
+    margin: 0px 4px 8px 4px;
+}
+
+.superForm {
+    text-align: left;
+    width: min-content;
+    overflow: hidden;
+    border: solid 1px var(--color-gray);
+    border-radius: var(--border-radius);
+    box-shadow: 0px 5px 10px #0004;
+    transform: translateY(-20px);
+}
+
+.p {
+    padding: 0px;
+    margin: 0px;
+}
+
+.inBetween {
+    background-color: var(--color-primary);
+    border-radius: var(--border-radius);
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    transform: translateY(10px);
+    padding: 0px 14px;
+}
+
+.formDiv {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.date {
+    padding: 2px 4px;
+    margin: 0px 4px;
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    background-color: #0004;
+    border-radius: var(--border-radius);
+}
