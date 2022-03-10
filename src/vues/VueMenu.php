@@ -68,6 +68,7 @@ class VueMenu
                 <div><a href=$url_creer_produit>Créer un produit</a></div>
                 <div><a href=$url_register>S inscrire</a></div>
                 <div><a href=$url_login>Se connecter</a></div>
+                
             </nav>
             <body>
                 <div class="content">
