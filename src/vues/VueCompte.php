@@ -4,7 +4,7 @@ namespace custombox\vues;
 
 use Slim\Container;
 
-class VueComtpe
+class VueCompte
 {
     public array $tab;
     public Container $container;
@@ -15,20 +15,6 @@ class VueComtpe
         $this->container = $container;
     }
 
-    private function header(): string {
-		$login_url = $this->container->router->pathFor('login');
-		$register_url = $this->container->router->pathFor('register');
-
-		return "
-			<nav>
-				<h1>CustomBox</h1>
-				<ul>
-					<li><a href='$register_url'>S'inscrire</a></li>
-					<li><a href='$login_url'>Se connecter</a></li>
-				</ul>
-			</nav>
-		";
-	}
 
     private function register(): string {
 		return "
@@ -37,16 +23,16 @@ class VueComtpe
                 <label for='nom'>Login</label>
                 <input type='text' name='login' id='login' required>
 				<label for='nom'>Nom</label>
-				<input type='text' name='nom' id='nom'>
+				<input type='text' name='nom' id='nom' required>
 				<label for='prenom'>Prénom</label>
-				<input type='text' name='prenom' id='prenom'>
+				<input type='text' name='prenom' id='prenom' required>
 				<label for='email'>Email</label>
-				<input type='email' name='email' id='email'>
+				<input type='email' name='email' id='email' required>
 				<label for='password'>Mot de passe</label>
 				<input type='password' name='password' id='password' required>
 				<label for='password_confirm'>Confirmation du mot de passe</label>
 				<input type='password' name='password_confirm' id='password_confirm' required>
-				<input type='submit' value='S&#39;inscrire'>
+				<input type='submit' value='Inscription'>
 			</form>
 		";
 	}
@@ -59,7 +45,7 @@ class VueComtpe
 				<input type='text' name='username' id='username' required>
 				<label for='password'>Mot de passe</label>
 				<input type='password' name='password' id='password' required>
-				<input type='submit' value='Se connecter'>
+				<input type='submit' value='Connexion'>
 			</form>
 		";
 	}
