@@ -24,6 +24,36 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `commande`
+--
+
+create table commande(
+  `id` int(11) NOT NULL,
+  `id_boite` int(11) NOT NULL,
+  `id_categorie` int(11) NOT NULL,
+  `id_produit` int(11) NOT NULL, 
+)
+
+-- Index pour la table `boite`
+--
+ALTER TABLE `commande`
+  ADD PRIMARY KEY (`id`);
+
+
+ALTER TABLE `commande`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=0;
+
+ALTER TABLE `commande`
+  ADD CONSTRAINT `commande_1` FOREIGN KEY (`id`) REFERENCES `boite` (`id`);
+
+
+ALTER TABLE `commande`
+  ADD CONSTRAINT `commande_2` FOREIGN KEY (`id`) REFERENCES `categorie` (`id`);
+
+  
+ALTER TABLE `commande`
+  ADD CONSTRAINT `commande_1` FOREIGN KEY (`id`) REFERENCES `produit` (`id`);
+--
 -- Structure de la table `boite`
 --
 
