@@ -29,6 +29,19 @@ class VueMenu
         return "<section>$content</section>";
     }
 
+    private function afficherCategorie() : string
+    {
+        $k = $this->tab[0];
+        $categorie = \custombox\models\Categorie::where('id', '=', "$k[categorie]")->first();
+        $content = "Liste des produits de catégories : $categorie->nom";
+        foreach ($this->tab as $l) {
+            $content .= "<article>$l[id] ; $l[titre] ; $l[description]</article>\n";
+        }
+        return "<section>$content</section>";
+    }
+
+
+
     public function render($selecteur)
     {
         switch ($selecteur) {
@@ -40,12 +53,19 @@ class VueMenu
                 $content = $this->afficherListeCategorie();
                 break;
             }
+
+            case 2: {
+                $content = $this->afficherCategorie();
+                break;
+            }
         }
 
         $url_acceuil = $this->container->router->pathFor('accueil');
         $url_listecategorie = $this->container->router->pathFor('liste_categorie');
 		$url_register = $this->container->router->pathFor('register');
 		$url_login = $this->container->router->pathFor('login');
+        //$url_categorie = $this->container->router->pathFor('afficherUneCategorie');
+
 
         $html = <<<END
         <!DOCTYPE html>
@@ -72,6 +92,7 @@ class VueMenu
                <div><a href=$url_listecategorie>Liste de Catégorie</a></div>
                <div><a href=$url_register>S inscrire</a></div>
                <div><a href=$url_login>Se connecter</a></div>
+               
                </nav>
             </body>
         </html>

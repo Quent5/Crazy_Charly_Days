@@ -51,6 +51,9 @@ $app->post('/connexion', ControllerCompte::class . ':loginForm')->setName('login
 $app->get('/inscription', ControllerCompte::class . ':register')->setName('register');
 $app->post('/inscription', ControllerCompte::class . ':registerForm')->setName('registerForm');
 
+$app->get('/categorie/{id}', ControllerMenu::class . ':afficherUneCategorie')->setName('afficherUneCategorie');
+
+
 try {
     $app->run();
 } catch (Throwable $e) {
