@@ -21,6 +21,27 @@ SET time_zone = "+00:00";
 -- Base de données : `custombox`
 --
 
+CREATE TABLE `compte` (
+  `login` text NOT NULL,
+  `nom` text NOT NULL,
+  `prenom` text NOT NULL,
+  `mdp` text NOT NULL,
+  `mail` text, 
+  `tel` text,
+  PRIMARY KEY (login)
+)
+
+CREATE TABLE `historique_commande` (
+  `login`,
+  `id_commande`,
+  CONSTRAINT PK_historique_commande PRIMARY KEY (login, id_commande),
+  ADD CONSTRAINT `c1` FOREIGN KEY (`login`) REFERENCES `compte` (`login`);
+  ADD CONSTRAINT `c2` FOREIGN KEY (`id_commande`) REFERENCES `commande` (`id`);
+)
+
+
+
+
 -- --------------------------------------------------------
 
  --
