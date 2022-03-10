@@ -27,14 +27,7 @@ class VueCommande{
         $url_acceuil = $this->container->router->pathFor('accueil');
 
         $html = <<<END
-        <!DOCTYPE html>
-        <html>
-            <body>
-                <div class="content">
-                $content
-                </div>
-            </body>
-        </html>
+
 END;
         return $html;
     }

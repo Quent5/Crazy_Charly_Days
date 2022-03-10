@@ -1,17 +1,20 @@
 <?php
 
 namespace custombox\vues;
+use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Container;
 
 class VueMenu
 {
     public array $tab;
     public Container $container;
+    public Request $rq;
 
-    public function __construct(array $tab, Container $container)
+    public function __construct(array $tab, Container $container,Request $rq)
     {
         $this->tab = $tab;
         $this->container = $container;
+        $this->rq = $rq;
     }
 
     private function accueil() : string
@@ -24,7 +27,7 @@ class VueMenu
     {
         $content = "Liste des Catégories\n";
         foreach ($this->tab as $l) {
-            $content .= "<a href=https://webetu.iutnc.univ-lorraine.fr/www/hemmerle8u/Crazy_Charly_Days/$l[id]><article>$l[nom]<img src=\"images/categories/$l[id].png\"></article></a>\n";
+            $content .= "<a href=/CustomBox/categorie/$l[id]><article>$l[nom]<img src=\"images/categories/$l[id].png\"></article></a>\n";
             //$url_$l[nom]
         }
         return "<section>$content</section>";
@@ -36,7 +39,7 @@ class VueMenu
         $categorie = \custombox\models\Categorie::where('id', '=', "$k[categorie]")->first();
         $content = "Liste des produits de catégories : $categorie->nom";
         foreach ($this->tab as $l) {
-            $content .= "<article>$l[id] ; $l[titre] ; $l[description]</article>\n";
+            $content .= "<article>$l[id] ; $l[titre] ; $l[description]<img src=\"http://localhost/CustomBox/images/produit/$l[id].jpg\"></article>\n";
         }
         return "<section>$content</section>";
     }
@@ -70,16 +73,22 @@ class VueMenu
         
         //$url_categorie = $this->container->router->pathFor('afficherUneCategorie');
 
+        $base = $this->rq->getUri()->getBasePath() ;
+        $url = $base . '/style.css' ;
+        $url_img = $base . '/images/logo/print-logo-blanc-petit.png';
+        $url_img1 = $base . '/images/logo/paniers.png';
+        $url_img2 = $base . '/images/logo/paniers.png';
+
 
         $html = <<<END
         <!DOCTYPE html>
         <html>
             <head>
-                <link rel="stylesheet" href="style.css" />
+                <link rel="stylesheet" href=$url />
                 <div class="haut">
-                    <img src="images/logo/print-logo-blanc-petit.png" id="logo">
+                    <img src=$url_img id="logo">
                     <h1 class = "text-center">CustomBox</h1>
-                    <a href="" id="panier"><img src="images/logo/paniers.png" id="panier_logo"></a>
+                    <a href="" id="panier"><img src=$url_img1 id="panier_logo"></a>
                 </div>
                                 
             </head>

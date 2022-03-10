@@ -13,11 +13,12 @@ class ControllerMenu {
 
     public function __construct(Container $container) {
 		$this->container = $container;
+
 	}
 
     public function controllerAccueil(Request $rq, Response $rs, $args):Response
     {
-        $vue = new \custombox\vues\VueMenu([], $this->container) ;
+        $vue = new \custombox\vues\VueMenu([], $this->container, $rq) ;
         $html = $vue->render(0) ;
         $rs->getBody()->write($html);
         return $rs;
@@ -27,7 +28,7 @@ class ControllerMenu {
     public function afficherListeCategorie(Request $rq, Response $rs, $args):Response
     {
         $listes = \custombox\models\Categorie::all();
-        $vue = new \custombox\vues\VueMenu($listes->toArray(), $this->container) ;
+        $vue = new \custombox\vues\VueMenu($listes->toArray(), $this->container, $rq) ;
         $html = $vue->render(1) ;
         $rs->getBody()->write($html);
         return $rs;
@@ -35,7 +36,7 @@ class ControllerMenu {
 
     public function afficherUneCategorie(Request $rq, Response $rs, $args):Response {
         $liste = \custombox\models\Produit::where('categorie','=',$args['id'])->get();
-        $vue = new \custombox\vues\VueMenu($liste->toArray(), $this->container) ;
+        $vue = new \custombox\vues\VueMenu($liste->toArray(), $this->container,$rq) ;
         $html = $vue->render(2);
         $rs->getBody()->write($html);
         return $rs;
