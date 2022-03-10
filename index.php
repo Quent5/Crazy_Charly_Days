@@ -27,13 +27,24 @@ $app = new \Slim\App([
     ],
 ]);
 
-
 $app->get('/',
     function ($rq, $rs, $args) {
-        $c = new  ControllerMenu($this);
-        return $c->afficherListeCategorie($rq, $rs, $args);
+        $c = new ControllerMenu($this);
+        return $c->controllerAccueil($rq, $rs, $args);
     }
 )->setName("accueil");
 
-$app->run();
+/*$app->get('/list',
+    function ($rq, $rs, $args) {
+        $c = new ControllerMenu($this);
+        return $c->afficherListeCategorie($rq, $rs, $args);
+    }
+)->setName("liste_categorie");*/
+
+$app->get('/listcat', ControllerMenu::class . ':afficherListeCategorie')->setName('liste_categorie');
+
+try {
+    $app->run();
+} catch (Throwable $e) {
+}
 

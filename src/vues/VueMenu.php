@@ -14,9 +14,15 @@ class VueMenu
         $this->container = $container;
     }
 
+    private function accueil() : string
+    {
+        $content = "<h1>Accueil</h1>";
+        return $content;
+    }
+
     private function afficherListeCategorie() : string
     {
-        $content = "\n";
+        $content = "Liste des Catégories\n";
         foreach ($this->tab as $l) {
             $content .= "<article>$l[id] ; $l[nom]</article>\n";
         }
@@ -26,14 +32,18 @@ class VueMenu
     public function render($selecteur)
     {
         switch ($selecteur) {
-            case 0:
-            {
+            case 0: {
+                $content = $this->accueil();
+                break;
+            }
+            case 1: {
                 $content = $this->afficherListeCategorie();
                 break;
             }
         }
 
         $url_acceuil = $this->container->router->pathFor('accueil');
+        $url_listecategorie = $this->container->router->pathFor('liste_categorie');
 
         $html = <<<END
         <!DOCTYPE html>
@@ -42,6 +52,11 @@ class VueMenu
                 <div class="content">
                 $content
                 </div>
+                <nav>
+                <br>
+                <div><a href=$url_acceuil>Accueil</a></div>
+               <div><a href=$url_listecategorie>Liste de Catégorie</a></div>
+               </nav>
             </body>
         </html>
         END;
