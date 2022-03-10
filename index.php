@@ -32,8 +32,15 @@ $app = new \Slim\App([
 $app->get('/',function (Request $request, Response $response, $args) {
     $response->getBody()->write(PageMaker::startPage("Accueil"));
     $response->getBody()->write(PageMaker::startHeader());
+    
+    $response->getBody()->write(PageMaker::title("CustomBox"));
+    $response->getBody()->write(PageMaker::endPage());
+    return $response;
 
-});
+
+
+})->setName("accueil");
+
 $app->get(
     '/test',
     function ($rq, $rs, $args) {
