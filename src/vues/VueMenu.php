@@ -44,6 +44,8 @@ class VueMenu
 
         $url_acceuil = $this->container->router->pathFor('accueil');
         $url_listecategorie = $this->container->router->pathFor('liste_categorie');
+		$url_register = $this->container->router->pathFor('register');
+		$url_login = $this->container->router->pathFor('login');
 
         $html = <<<END
         <!DOCTYPE html>
@@ -56,6 +58,8 @@ class VueMenu
                 <br>
                 <div><a href=$url_acceuil>Accueil</a></div>
                <div><a href=$url_listecategorie>Liste de Catégorie</a></div>
+               <div><a href=$url_register>S inscrire</a></div>
+               <div><a href=$url_login>Se connecter</a></div>
                </nav>
             </body>
         </html>

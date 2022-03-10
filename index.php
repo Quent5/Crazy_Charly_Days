@@ -43,6 +43,14 @@ $app->get('/',
 
 $app->get('/listcat', ControllerMenu::class . ':afficherListeCategorie')->setName('liste_categorie');
 
+
+$app->get('/connexion', ControllerCompte::class . ':login')->setName('login');
+$app->post('/connexion', ControllerCompte::class . ':loginForm')->setName('loginForm');
+
+// Inscription
+$app->get('/inscription', ControllerCompte::class . ':register')->setName('register');
+$app->post('/inscription', ControllerCompte::class . ':registerForm')->setName('registerForm');
+
 try {
     $app->run();
 } catch (Throwable $e) {
